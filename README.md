@@ -70,7 +70,7 @@
 
 7、关键代码逻辑的流程图
 
-- OSA的适配器类，实现滚动视窗逻辑的脚本代码逻辑：
+- 段位奖励列表展示类ShowReward.cs，实现动态加载数据并实例化出不同的段位奖励对象：
 
 <img src="https://github.com/89trillion-xuda/Project5/blob/master/Assets/ReadMeImg/ShowReward.cs.png" style="zoom:80%;" />
 
