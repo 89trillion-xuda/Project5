@@ -48,6 +48,8 @@ public class ShowReward : MonoBehaviour
             GameObject RewardObject = GameObject.Instantiate(RewardObjectClone, transform) as GameObject;
             //获取这个克隆物体的transform
             RectTransform rtf = RewardObject.transform as RectTransform;
+            //获取到transform后，将这个克隆物体的 父类 设置为 当前脚本所挂载的对象
+            rtf.SetParent(transform);
 
             //得到当前对象下的 组件集合类 中的 一个方法订阅这个委托
             RewardComponents components = RewardObject.GetComponent<RewardComponents>();
@@ -55,9 +57,6 @@ public class ShowReward : MonoBehaviour
             ButtonController.EventRefreshUI += components.RefreshReward;
             // 将外部视图的ButtonController 传入到每一个实例化的预制体上，保持一致性
             components.buttonController = ButtonController;
-
-            //获取到transform后，将这个克隆物体的 父类 设置为 当前脚本所挂载的对象
-            rtf.SetParent(transform);
         }
         
         //最后还原一下里程碑预制体，让它变回原来的样子
