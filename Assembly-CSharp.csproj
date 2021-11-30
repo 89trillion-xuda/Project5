@@ -61,7 +61,7 @@
      <Compile Include="Assets\02.Scripts\Controller\ButtonController.cs" />
      <Compile Include="Assets\02.Scripts\Model\GetRewards.cs" />
      <Compile Include="Assets\02.Scripts\Model\RewardModel.cs" />
-     <Compile Include="Assets\02.Scripts\View\RewardComponents.cs" />
+     <Compile Include="Assets\02.Scripts\View\RewardChildObjects.cs" />
      <Compile Include="Assets\02.Scripts\View\ShowReward.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>/Users/xuda/Desktop/practiceProject/New Unity Project 5/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
