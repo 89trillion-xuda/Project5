@@ -51,9 +51,10 @@ public class ShowReward : MonoBehaviour
 
             //得到当前对象下的 组件集合类 中的 一个方法订阅这个委托
             RewardComponents components = RewardObject.GetComponent<RewardComponents>();
-            components.buttonController = ButtonController;
             ButtonController.EventAddUI += components.AddReward;
             ButtonController.EventRefreshUI += components.RefreshReward;
+            // 将外部视图的ButtonController 传入到每一个实例化的预制体上，保持一致性
+            components.buttonController = ButtonController;
 
             //获取到transform后，将这个克隆物体的 父类 设置为 当前脚本所挂载的对象
             rtf.SetParent(transform);

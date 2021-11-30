@@ -19,7 +19,7 @@ public class RewardComponents : MonoBehaviour
     public Text RewardReceivedTxt;
     //可领取按钮
     public Button RewardReceiveBtn;
-
+    //声明一个外部视图的ButtonController类，由外部参数传入，用以使用外部的ButtonController的方法
     public ButtonController buttonController;
     //每个奖励相差的段位分数
     private static int cutNum = 200;
@@ -38,11 +38,6 @@ public class RewardComponents : MonoBehaviour
                 //触发委托，将奖励内容的金币数量作为参数传递
                 buttonController.EventRefreshCoin(coin);
         });
-    }
-
-    public void Init(string ss)
-    {
-        
     }
 
     //还原商品预制体方法，使之变回原来开始的模样
