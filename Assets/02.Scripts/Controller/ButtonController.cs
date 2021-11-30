@@ -54,7 +54,9 @@ public class ButtonController : MonoBehaviour
         //增加当前段位分数，设置封顶6000分
         if (int.Parse(RankPointsNumTxtClone.text) < 6000)
         {
+            //增加段位
             RankPointsNumTxtClone.text = (int.Parse(RankPointsNumTxtClone.text) + addNum).ToString();
+            //段位值超过6000时封顶
             if (int.Parse(RankPointsNumTxtClone.text) > 6000)
             {
                 RankPointsNumTxtClone.text = "6000";

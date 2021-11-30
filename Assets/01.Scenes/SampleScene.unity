@@ -2093,7 +2093,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RankPointsNumTxtClone: {fileID: 1896681521}
   RankNameTxtClone: {fileID: 1136966829}
-  RewardReceiveBtn: {fileID: 0}
   RankCheckPanel: {fileID: 2077118197}
   RankCurrentNumTxt: {fileID: 949534539}
   CoinNumTxt: {fileID: 622492892}

@@ -14,6 +14,7 @@ public class GetRewards
 
     public void Awake()
     {
+        //循环终止条件为段位分数<=6000时可以循环
         for (int i = 0; (4000 + i * 200) <= 6000; i++)
         {
             RewardModel rewardModel = new RewardModel();
