@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -18,7 +19,32 @@ public class RewardComponents : MonoBehaviour
     public Text RewardReceivedTxt;
     //可领取按钮
     public Button RewardReceiveBtn;
-    
+
+    public ButtonController buttonController;
+    //每个奖励相差的段位分数
+    private static int cutNum = 200;
+    //每个奖励内容为100金币
+    private static int coin = 100;
+
+    private void Awake()
+    {
+        //为领取奖励按钮增加监听事件
+        RewardReceiveBtn.onClick.AddListener(() =>
+        {
+            //隐藏领取按钮，修改领取状态
+            RewardReceiveBtn.gameObject.SetActive(false);
+            //委托不为空时
+            if (buttonController.EventRefreshCoin!=null)
+                //触发委托，将奖励内容的金币数量作为参数传递
+                buttonController.EventRefreshCoin(coin);
+        });
+    }
+
+    public void Init(string ss)
+    {
+        
+    }
+
     //还原商品预制体方法，使之变回原来开始的模样
     public void Init()
     {
@@ -34,7 +60,7 @@ public class RewardComponents : MonoBehaviour
     public void AddReward(int num)
     {
         //当前分数 超过 某个奖励分数，显示领取按钮
-        if ((num - int.Parse(RewardRankPointsTxt.text)) >= 0 && (num - int.Parse(RewardRankPointsTxt.text)) < 200 && int.Parse(RewardRankPointsTxt.text) % 1000 != 0)
+        if ((num - int.Parse(RewardRankPointsTxt.text)) >= 0 && (num - int.Parse(RewardRankPointsTxt.text)) < cutNum && int.Parse(RewardRankPointsTxt.text) % 1000 != 0)
         {
             //显示可领取按钮
             RewardReceivedTxt.gameObject.SetActive(true);

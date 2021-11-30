@@ -509,7 +509,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1003465006772990813}
+      - m_Target: {fileID: 0}
         m_MethodName: Receive
         m_Mode: 1
         m_Arguments:
@@ -530,7 +530,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3629977719971714355}
   - component: {fileID: 6948023920940020381}
-  - component: {fileID: 1003465006772990813}
   m_Layer: 5
   m_Name: RewardObject
   m_TagString: Untagged
@@ -579,19 +578,4 @@ MonoBehaviour:
   RewardContentTxt: {fileID: 3629977719130424736}
   RewardReceivedTxt: {fileID: 3629977718716116553}
   RewardReceiveBtn: {fileID: 3629977719906340557}
---- !u!114 &1003465006772990813
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3629977719971714352}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8c82faf8c958476690f1e9c1c7eac3e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RankPointsNumTxtClone: {fileID: 0}
-  RankNameTxtClone: {fileID: 0}
-  RewardReceiveBtn: {fileID: 3629977719906340557}
-  RankCheckPanel: {fileID: 0}
+  buttonController: {fileID: 0}

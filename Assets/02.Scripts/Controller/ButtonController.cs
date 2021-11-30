@@ -13,25 +13,53 @@ public class ButtonController : MonoBehaviour
     [SerializeField] private Text RankPointsNumTxtClone;
     //获得当前段位状态
     [SerializeField] private Text RankNameTxtClone;
-    //得到领取按钮
-    [SerializeField] private Button RewardReceiveBtn;
     //得到开始页面
     [SerializeField] private GameObject RankCheckPanel;
+    //得到赛季信息的文本
+    [SerializeField] private Text RankCurrentNumTxt;
+    //得到金币信息的文本
+    [SerializeField] private Text CoinNumTxt;
+
+    //点击增加段位分数按钮，每次增加的分数为100
+    private static int addNum = 100;
+    //每次奖励的金币数为100
+    private static int addCoin = 100;
 
     //注册增加段位分的委托事件
     public Action<int> EventAddUI;
     //注册赛季刷新的委托事件
     public Action<int> EventRefreshUI;
+    //注册领取奖励后金币增加的委托事件
+    public Action<int> EventRefreshCoin;
+    
+    private void Awake()
+    {
+        //初始化时，为金币增加事件 订阅 委托事件
+        EventRefreshCoin += Receive;
+    }
 
+    //领取奖励方法
+    void Receive(int num)
+    {
+        if (CoinNumTxt!=null)
+        {
+            //增加金币数量
+            CoinNumTxt.text = (int.Parse(CoinNumTxt.text) + num).ToString();
+        }
+    }
+    
     //增加段位分数方法
     public void Add()
     {
         //增加当前段位分数，设置封顶6000分
         if (int.Parse(RankPointsNumTxtClone.text) < 6000)
         {
-            RankPointsNumTxtClone.text = (int.Parse(RankPointsNumTxtClone.text) + 100).ToString();
+            RankPointsNumTxtClone.text = (int.Parse(RankPointsNumTxtClone.text) + addNum).ToString();
+            if (int.Parse(RankPointsNumTxtClone.text) > 6000)
+            {
+                RankPointsNumTxtClone.text = "6000";
+            }
         }
-
         //刷新当前段位状态
         if (int.Parse(RankPointsNumTxtClone.text) >= 6000)
         {
@@ -48,13 +76,7 @@ public class ButtonController : MonoBehaviour
         if (EventAddUI != null)
             EventAddUI(int.Parse(RankPointsNumTxtClone.text));
     }
-    
-    //领取奖励方法
-    public void Receive()
-    {
-        RewardReceiveBtn.gameObject.SetActive(false);
-    }
-    
+
     //赛季刷新按钮
     public void Refresh()
     {
@@ -80,8 +102,10 @@ public class ButtonController : MonoBehaviour
             //触发委托，将当前分数作为参数传递
             if (EventRefreshUI != null)
                 EventRefreshUI(newPoint);
-            
         }
+        
+        //刷新赛季，赛季+1
+        RankCurrentNumTxt.text = (int.Parse(RankCurrentNumTxt.text) + 1).ToString();
     }
     
     //进入查看段位方法
