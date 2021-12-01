@@ -45,7 +45,7 @@
 | 实体层：RewardModel.cs      | 对应每条段位奖励的实体类                         | 位于Model下      |
 | 实体层：GetRewards.cs       | 设置每条段位奖励的信息，并将数据存储进List链表中 | 位于Model下      |
 | 控制层：ButtonController.cs | 实现所有按钮的点击功能                           | 位于Controller下 |
-| 视图层：RewardComponents.cs | 用于获得预制体上需要动态改变的组件集合           | 位于View下       |
+| 视图层：RewardChildObjects.cs | 用于获得预制体上需要动态改变的子对象集合           | 位于View下       |
 | 视图层：ShowReward.cs       | 根据获得的数据展示所有的段位奖励                 | 位于View下       |
 
 
